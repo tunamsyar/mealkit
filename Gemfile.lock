@@ -95,6 +95,10 @@ GEM
       contentful (~> 2.7)
       contentful-management (~> 2.0)
       redcarpet
+    contentful_rails (0.5.0)
+      contentful_model (~> 1.0)
+      rails (>= 4.2)
+      redcarpet (~> 3.2)
     crass (1.0.6)
     diff-lcs (1.4.4)
     domain_name (0.5.20190701)
@@ -140,6 +144,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jquery (0.0.1)
     json (2.5.1)
     kwalify (0.7.2)
     listen (3.5.1)
@@ -331,9 +336,11 @@ DEPENDENCIES
   bootstrap
   capybara (>= 2.15)
   contentful_model
+  contentful_rails
   dotenv-rails
   haml-rails
   jbuilder (~> 2.7)
+  jquery
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   pry

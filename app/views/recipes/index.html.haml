@@ -1,7 +1,9 @@
 %h1 Recipes
 
-- @recipes.each do |recipe|
-  %a{href: recipe_path(recipe.id) }
-    %h2= recipe.title
-    %img{ src: recipe.photo.url }
+.row
+  - @recipes.each do |recipe|
+    .col-4
+      %a{href: recipe_path(recipe.id) }
+        %h2= recipe.title
+        %img{ src: recipe.photo.url, class: 'img-thumbnail' }
 

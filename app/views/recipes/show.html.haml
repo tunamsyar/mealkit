@@ -1,8 +1,18 @@
 %h1= @recipe.title
-%img{ src: @recipe.photo.url }
-
-= @recipe.description
-
-= @recipe.tags.map(&:name)
-
-= @recipe.chef&.name
+.row
+  .col-2
+  .col-8
+    .row
+      .col-12
+        .img-responsive
+          %img{ src: @recipe.photo.url, class: 'img-thumbnail' }
+    .row
+      %b Description:
+      = @recipe.description
+    .row
+      %b Tags:
+      = @recipe.tags&.map(&:name)
+    .row
+      %b Chef:
+      = @recipe.chef&.name
+  .col-2

@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'haml-rails'
 gem 'contentful_model'
 gem 'bootstrap'
+gem 'jquery'
+gem 'contentful_rails'
 
 group :development, :test do
   gem 'dotenv-rails'
