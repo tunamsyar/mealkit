@@ -1,24 +1,40 @@
-# README
+# Marley Spoon Coding Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dependencies
 
-Things you may want to cover:
+- Docker
+- Ruby 2.7.0
 
-* Ruby version
+## Setup
 
-* System dependencies
+```bash
+gem install bundler
+bundle install
+```
 
-* Configuration
+## ENV
 
-* Database creation
+- Create `.env` file
+- Use `.env.sample` to fill in the values of the variables
 
-* Database initialization
+### Local
+To run locally
+```bash
+rails s -p 3000
+```
+or
 
-* How to run the test suite
+```bash
+docker-compose up -d
+```
+## Testing
 
-* Services (job queues, cache servers, search engines, etc.)
+- `rspec` is used
+- `rubocop`, `reek`, `rails_best_practices` used for code quality
+- `simple_cov` is used for test coverage
 
-* Deployment instructions
+[](![asdad](https://imgur.com/Ody3HT4))
+### VCR
 
-* ...
+- `VCR` is used to mock responses from `Contentful`
+- Cassettes are stored in `fixtures/vcr_cassettes`
