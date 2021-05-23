@@ -1,5 +1,8 @@
 # Marley Spoon Coding Challenge
 
+## Description
+- Used `contentful` gem for connection with `Contentful`
+
 ## Dependencies
 
 - Docker
@@ -30,6 +33,7 @@ docker-compose up -d
 ## Testing
 
 - `rspec` is used
+- - run `bundle exec rspec`
 - `rubocop`, `reek`, `rails_best_practices` used for code quality
 - `simple_cov` is used for test coverage
 
