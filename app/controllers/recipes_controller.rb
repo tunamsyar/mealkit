@@ -7,5 +7,6 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    render 'recipes/not_found', layout: false, status: :not_found if @recipe.blank?
   end
 end

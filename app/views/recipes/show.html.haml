@@ -1,7 +1,7 @@
-%h1= @recipe.title
 .row
   .col-2
   .col-8
+    %h1= @recipe.title
     .row
       .col-12
         .img-responsive
@@ -11,8 +11,11 @@
       = @recipe.description
     .row
       %b Tags:
-      = @recipe.tags&.map(&:name)
+      = @recipe.tags&.map(&:name)&.join(', ')
     .row
       %b Chef:
       = @recipe.chef&.name
+    .row
+      = link_to 'Back', root_path
   .col-2
+
