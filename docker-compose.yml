@@ -1,0 +1,61 @@
+  version: '3.8'
+
+  services:
+    app:
+      image: tunamsyar/mealkit:v1
+      build:
+        context: .
+      command: ["spring", "server"]
+      environment:
+        - POSTGRES_HOST=pg
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=secret
+        - RAILS_ENV
+      volumes:
+        - ./:/usr/src/app
+        - gems:/usr/local/bundle
+        - node-modules:/usr/src/app/node_modules
+        - ${HOME}/.irbrc:/root/.irbrc
+        - ${HOME}/.irb-history:/root/.irb-history
+
+    web:
+      image: tunamsyar/mealkit:v1
+      command: ["rails", "server", "-b", "0.0.0.0"]
+      environment:
+        - POSTGRES_HOST=pg
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=secret
+        - RAILS_ENV
+        - DATABASE_URL=postgres://postgres:secret@pg:5432/mealkit_development
+      volumes:
+        - ./:/usr/src/app
+        - gems:/usr/local/bundle
+        - node-modules:/usr/src/app/node_modules
+      ports:
+        - 3000:3000
+      links:
+        - pg
+
+    pg:
+      image: postgres:11.2-alpine
+      volumes:
+        - pg-data:/var/lib/postgresql/data
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=secret
+
+    webpacker:
+      image: tunamsyar/mealkit:v1
+      command: ./bin/webpack-dev-server
+      volumes:
+        - ./:/usr/src/app
+        - gems:/usr/local/bundle
+        - node-modules:/usr/src/app/node_modules
+      ports:
+        - 3035:3035
+
+
+  volumes:
+    gems:
+    pg-data:
+    node-modules:
