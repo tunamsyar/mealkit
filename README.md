@@ -33,7 +33,7 @@ docker-compose up -d
 - `rubocop`, `reek`, `rails_best_practices` used for code quality
 - `simple_cov` is used for test coverage
 
-[](![asdad](https://imgur.com/Ody3HT4))
+![coverage](https://imgur.com/Ody3HT4)
 ### VCR
 
 - `VCR` is used to mock responses from `Contentful`
