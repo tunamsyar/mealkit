@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'GET recipes#show', type: :request do
-
   describe 'GET /recipes/:id' do
     context 'successful' do
       subject do

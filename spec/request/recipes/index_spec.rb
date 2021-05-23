@@ -3,11 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'GET recipes#index', type: :request do
-
   describe 'GET /' do
     context 'successful' do
       subject do
-        VCR.use_cassette("recipes") do
+        VCR.use_cassette('recipes') do
           get root_path
         end
       end
